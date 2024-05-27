@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>xdm_model</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="DTO\" />
+    <None Remove="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTO\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+</Project>

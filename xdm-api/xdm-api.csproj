@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>xdm_api</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="NLog" Version="5.3.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.5" />
+    <PackageReference Include="MailKit" Version="4.6.0" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="5.3.11" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Controllers\" />
+    <None Remove="Controllers\System\" />
+    <None Remove="Filter\" />
+    <None Remove="Middleware\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Controllers\System\" />
+    <Folder Include="Filter\" />
+    <Folder Include="Middleware\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\xdm-model\xdm-model.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\xdm-repository\xdm-repository.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\xdm-service\xdm-service.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

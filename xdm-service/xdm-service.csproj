@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>xdm_service</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Server\" />
+    <None Remove="Service\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Server\" />
+    <Folder Include="Service\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.4" />
+    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="2.1.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\xdm-repository\xdm-repository.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="StackExchange.Redis, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46" />
+  </ItemGroup>
+</Project>

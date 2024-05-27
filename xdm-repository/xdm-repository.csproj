@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>xdm_repository</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="NETCore.Encrypt" Version="2.1.1" />
+		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
+		<PackageReference Include="SqlSugar.IOC" Version="2.0.0" />
+		<PackageReference Include="SqlSugarCoreNoDrive" Version="5.1.4.156" />
+		<PackageReference Include="StackExchange.Redis" Version="2.7.33" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="Server\" />
+		<None Remove="DBContext\" />
+		<None Remove="Repository\" />
+		<None Remove="Helper\" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Server\" />
+		<Folder Include="DBContext\" />
+		<Folder Include="Repository\" />
+		<Folder Include="Helper\" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\xdm-model\xdm-model.csproj" />
+	</ItemGroup>
+</Project>
