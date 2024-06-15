@@ -1,10 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
+using SqlSugar;
+using xdm_repository.Models;
 
-namespace xdm_model.Models
+namespace xdm_repository.Model
 {
-    public class sys_user
+    public class sys_user : BaseEntity
     {
         public sys_user()
         {
@@ -28,10 +30,6 @@ namespace xdm_model.Models
         public string? del_flag { get; set; }
         public string? login_ip { get; set; }
         public DateTime? login_date { get; set; }
-        public string? create_by { get; set; }
-        public DateTime? create_time { get; set; }
-        public string? update_by { get; set; }
-        public DateTime? update_time { get; set; }
         public string? remark { get; set; }
     }
 }

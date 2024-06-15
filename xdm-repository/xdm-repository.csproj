@@ -12,18 +12,25 @@
 		<PackageReference Include="SqlSugar.IOC" Version="2.0.0" />
 		<PackageReference Include="SqlSugarCoreNoDrive" Version="5.1.4.156" />
 		<PackageReference Include="StackExchange.Redis" Version="2.7.33" />
+		<PackageReference Include="Dapper" Version="2.1.35" />
+		<PackageReference Include="Dapper.Contrib" Version="2.0.78" />
+		<PackageReference Include="MySql.Data" Version="8.4.0" />
 	</ItemGroup>
 	<ItemGroup>
-		<None Remove="Server\" />
 		<None Remove="DBContext\" />
 		<None Remove="Repository\" />
 		<None Remove="Helper\" />
+		<None Remove="Dapper\" />
+		<None Remove="SqlSugar\" />
+		<None Remove="Model\" />
 	</ItemGroup>
 	<ItemGroup>
-		<Folder Include="Server\" />
 		<Folder Include="DBContext\" />
 		<Folder Include="Repository\" />
 		<Folder Include="Helper\" />
+		<Folder Include="Dapper\" />
+		<Folder Include="SqlSugar\" />
+		<Folder Include="Model\" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\xdm-model\xdm-model.csproj" />

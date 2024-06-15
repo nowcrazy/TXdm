@@ -1,4 +1,6 @@
-﻿using System;
+﻿using xdm_model.DTO;
+using xdm_repository.Model;
+
 namespace xdm_service.Server
 {
     public interface SysLoginServer
@@ -10,6 +12,10 @@ namespace xdm_service.Server
         /// <returns></returns>
         string GenerateCaptchaImageAsBase64(out string captchaAnswer);
         string login(string name, string pwd, string code, string uuid, string answer);
+        string logout(string name);
+        Task<User> GetUser(string username);
+        Task<IEnumerable<sys_user>> GetUsername(string username);
+        Task<IEnumerable<Meta>> GetRouters(string username);
     }
 }
 

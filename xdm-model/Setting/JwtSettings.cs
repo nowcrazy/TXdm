@@ -1,5 +1,5 @@
 ﻿using System;
-namespace xdm_model.Models
+namespace xdm_model.Setting
 {
     public class JwtSettings
     {
