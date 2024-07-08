@@ -1,7 +1,7 @@
 ﻿using System;
 namespace xdm_model.DTO
 {
-    public class User
+    public class SysUser
     {
 
         public string? CreateBy { get; set; }
@@ -26,6 +26,7 @@ namespace xdm_model.DTO
         public Dept Dept { get; set; }
         public List<Role>? Roles { get; set; }
         public bool Admin { get; set; }
+
 
     }
     public class Dept
@@ -66,5 +67,6 @@ namespace xdm_model.DTO
         public bool Flag { get; set; }
         public bool Admin { get; set; }
     }
+
 }
 

@@ -1,6 +1,7 @@
-﻿using System;
-using StackExchange.Redis;
+﻿
+
 using System.Collections.Concurrent;
+using StackExchange.Redis;
 
 namespace Repository.Helper
 {
@@ -57,6 +58,7 @@ namespace Repository.Helper
         {
             return GetConnect().GetSubscriber();
         }
+
         /// <summary>
         /// 
         /// </summary>

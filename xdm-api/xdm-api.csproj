@@ -24,12 +24,16 @@
     <None Remove="Controllers\System\" />
     <None Remove="Filter\" />
     <None Remove="Middleware\" />
+    <None Remove="Other\" />
+    <None Remove="Server\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Controllers\System\" />
     <Folder Include="Filter\" />
     <Folder Include="Middleware\" />
+    <Folder Include="Other\" />
+    <Folder Include="Server\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\xdm-model\xdm-model.csproj">

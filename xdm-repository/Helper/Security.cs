@@ -1,16 +1,16 @@
-﻿using System;
-using System.Data.SqlTypes;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
+using System.Security.Principal;
 using System.Text;
 using NETCore.Encrypt;
 using NETCore.Encrypt.Shared;
-using static NETCore.Encrypt.Shared.Check;
+using xdm_model.DTO;
 
 namespace Repository.Helper
 {
-    public class encryption
+    public class Security
     {
-        public encryption()
+        private readonly IPrincipal _principal;
+        public Security()
         {
         }
         #region MD5加密
@@ -229,6 +229,7 @@ namespace Repository.Helper
             }
         }
         #endregion
+
 
     }
 }

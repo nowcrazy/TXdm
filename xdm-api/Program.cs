@@ -9,6 +9,7 @@ using Repository.Helper;
 using SqlSugar;
 using SqlSugar.IOC;
 using xdm_api.Middleware;
+using xdm_api.Server;
 using xdm_model.Setting;
 using xdm_repository;
 using xdm_repository.DBContext;
@@ -97,12 +98,13 @@ builder.Services.AddCors(options =>
                                  .AllowAnyMethod();
                       });
 });
-
+builder.Services.AddHttpContextAccessor();
 // 添加控制器服务和Swagger服务
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<SecurityUtils>();
 // 添加内存缓存和会话服务
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
@@ -112,6 +114,7 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true; // 标记会话cookie为必须的，以便在GDPR下工作
 });
 
+builder.Services.AddControllersWithViews();
 // 注册EF Core数据库上下文
 builder.Services.AddDbContext<OperationContext>(option =>
 {

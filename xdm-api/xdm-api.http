@@ -1,4 +1,4 @@
-﻿@xdm_api_HostAddress = http://localhost:8000
+﻿@xdm_api_HostAddress = http://localhost
 
 GET {{xdm_api_HostAddress}}/weatherforecast/
 Accept: application/json

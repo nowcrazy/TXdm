@@ -10,12 +10,12 @@ namespace xdm_service.Server
         /// </summary>
         /// <param name="captchaAnswer">答案</param>
         /// <returns></returns>
-        string GenerateCaptchaImageAsBase64(out string captchaAnswer);
-        string login(string name, string pwd, string code, string uuid, string answer);
-        string logout(string name);
-        Task<User> GetUser(string username);
+        string GenerateCaptchaImageAsBase64(string uuid);
+        List<(bool, string)> login(LoginBody loginBody);
+        bool logout(string name);
         Task<IEnumerable<sys_user>> GetUsername(string username);
-        Task<IEnumerable<Meta>> GetRouters(string username);
+        Task<List<MenuItem>> GetRouters(string username);
+        Task<List<string>> GetPermissions(string username);
     }
 }
 

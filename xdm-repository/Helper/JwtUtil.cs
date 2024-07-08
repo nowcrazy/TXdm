@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using xdm_model.DTO;
 
 namespace Repository.Helper
 {
@@ -15,14 +16,13 @@ namespace Repository.Helper
             _configuration = configuration;
         }
 
-        public string CreateToken(string user_name, string password, string code, string uuid)
+        public string IssueJwt(LoginBody loginbody)
         {
             var claims = new[]
             {
-                new Claim("user_name",user_name),
-                new Claim("password",password),
-                new Claim("code",code),
-                new Claim("uuid",uuid),
+                new Claim("username",loginbody.username),
+                new Claim("code",loginbody.code),
+                new Claim("uuid",loginbody.uuid),
 
             };
             //获取appsetting中jwt中的SecretKey
@@ -40,7 +40,31 @@ namespace Repository.Helper
                  signCredentials
                 );
             var token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+            //var jwtHandler = new JwtSecurityTokenHandler();
+            //var encodedJwt = jwtHandler.WriteToken(jwtSecurityToken);
+            //var user = SerializeJwt(token);
             return token;
+        }
+        public static LoginBody SerializeJwt(string jwtStr)
+        {
+            var jwtHandler = new JwtSecurityTokenHandler();
+            LoginBody tokenModelJwt = new LoginBody();
+
+            // token校验
+            if (jwtHandler.CanReadToken(jwtStr))
+            {
+
+                JwtSecurityToken jwtToken = jwtHandler.ReadJwtToken(jwtStr);
+
+                Claim[] claimArr = jwtToken?.Claims?.ToArray();
+                if (claimArr != null && claimArr.Length > 0)
+                {
+                    tokenModelJwt.username = claimArr.FirstOrDefault(a => a.Type == "user_name")?.Value;
+                    tokenModelJwt.code = claimArr.FirstOrDefault(a => a.Type == "code")?.Value;
+                    tokenModelJwt.uuid = claimArr.FirstOrDefault(a => a.Type == "uuid")?.Value;
+                }
+            }
+            return tokenModelJwt;
         }
     }
 }
